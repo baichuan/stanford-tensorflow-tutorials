@@ -1,6 +1,6 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+#from __future__ import absolute_import
+#from __future__ import division
+#from __future__ import print_function
 
 from collections import Counter
 import random
@@ -37,11 +37,11 @@ def download(file_name, expected_bytes):
     return file_path
 
 def read_data(file_path):
-    """ Read data into a list of tokens 
+    """ Read data into a list of tokens
     There should be 17,005,207 tokens
     """
     with zipfile.ZipFile(file_path) as f:
-        words = tf.compat.as_str(f.read(f.namelist()[0])).split() 
+        words = tf.compat.as_str(f.read(f.namelist()[0])).split()
         # tf.compat.as_str() converts the input into the string
     return words
 
@@ -72,7 +72,7 @@ def generate_sample(index_words, context_window_size):
         # get a random target before the center word
         for target in index_words[max(0, index - context): index]:
             yield center, target
-        # get a random target after the center wrod
+        # get a random target after the center word
         for target in index_words[index + 1: index + context + 1]:
             yield center, target
 
