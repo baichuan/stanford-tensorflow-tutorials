@@ -102,7 +102,7 @@ def train_model(model, batch_gen, num_train_steps, weights_fld):
     initial_step = 0
     utils.make_dir('checkpoints')
     with tf.Session() as sess:
-        sess.run(tf.global_variables_initializer())
+        sess.run(tf.initialize_all_variables())
         ckpt = tf.train.get_checkpoint_state(os.path.dirname('checkpoints/checkpoint'))
         # if that checkpoint exists, restore from checkpoint
         if ckpt and ckpt.model_checkpoint_path:
