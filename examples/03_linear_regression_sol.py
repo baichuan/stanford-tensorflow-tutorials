@@ -43,9 +43,9 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001).minimize(loss
 
 with tf.Session() as sess:
 	# Step 7: initialize the necessary variables, in this case, w and b
-	sess.run(tf.global_variables_initializer()) 
+	sess.run(tf.initialize_all_variables()) 
 	
-	writer = tf.summary.FileWriter('./graphs/linear_reg', sess.graph)
+#	writer = tf.summary.FileWriter('./graphs/linear_reg', sess.graph)
 	
 	# Step 8: train the model
 	for i in range(50): # train the model 100 epochs
@@ -57,7 +57,7 @@ with tf.Session() as sess:
 		print('Epoch {0}: {1}'.format(i, total_loss/n_samples))
 
 	# close the writer when you're done using it
-	writer.close() 
+#	writer.close() 
 	
 	# Step 9: output the values of w and b
 	w, b = sess.run([w, b]) 
